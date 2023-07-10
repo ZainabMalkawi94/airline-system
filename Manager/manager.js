@@ -6,9 +6,8 @@ let host = `http://localhost:${port}/`;
 const SystemConnection = io.connect(host);
 const casual = require('casual');
 const { v4: uuidv4 } = require('uuid');
-//const pilotModule = require('../Pilot/pilot');
 
-//const {keepPilotAlerted} = require('../Pilot/pilot');
+
 function scheduleNewFlight() {
   const flightId = uuidv4();
   const pilotName = casual.name;
@@ -24,7 +23,7 @@ function handleNewFlight(flightDetails) {
 
 
 
-setInterval(scheduleNewFlight, 8000);
+setInterval(scheduleNewFlight, 10000);
 SystemConnection.on('new-flight', handleNewFlight);
 
 
